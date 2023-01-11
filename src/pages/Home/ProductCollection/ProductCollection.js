@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './ProductCollection.module.scss';
-import ProductCate from '~/components/ProductCate';
+import ProductCate from '~/components/ProductCateHeader';
 import { imageCollection } from '~/data';
 import { Gallery } from 'react-grid-gallery';
 import { useState } from 'react';

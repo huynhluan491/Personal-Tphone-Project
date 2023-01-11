@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './CustomerItem.module.scss';
-import ProductCate from '../ProductCate';
+import ProductCate from '../ProductCateHeader';
 import ProductItem from '../ProductItem';
 import data from '~/data/data.json';
 

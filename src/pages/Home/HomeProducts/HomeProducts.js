@@ -2,7 +2,7 @@ import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './HomeProducts.module.scss';
 import ProductItem from '~/components/ProductItem';
-import ProductCate from '~/components/ProductCate';
+import ProductCate from '~/components/ProductCateHeader';
 import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);

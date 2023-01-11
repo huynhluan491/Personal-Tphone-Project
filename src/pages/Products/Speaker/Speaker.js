@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Speaker.module.scss';
-import ProductCate from '~/components/ProductCate';
+import ProductCate from '~/components/ProductCateHeader';
 import ProductItem from '~/components/ProductItem';
 import { ProductsGrid } from '~/components/Grid';
 import { speaker } from '~/function';
