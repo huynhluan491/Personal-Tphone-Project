@@ -1,0 +1,47 @@
+.wrapper {
+    width: 100%;
+}
+
+.slider-container {
+    position: relative;
+}
+
+.slider-images {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mySlides {
+    width: 100%;
+
+    img {
+        width: 100%;
+        border-radius: 1.5em;
+        object-fit: cover;
+    }
+}
+
+.slider-btn {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 2rem;
+
+    .next-item,
+    .prev-item {
+        margin-right: 5px;
+        background-color: transparent;
+        border: 3.5px solid white;
+        border-radius: 999999px;
+        color: rgb(255 255 255/1);
+        padding: 1rem;
+
+
+    &:hover {
+        color: #000;
+        background-color: rgb(255 255 255/1);
+    }
+
+    } 
+}
+
