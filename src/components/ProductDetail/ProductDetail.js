@@ -23,10 +23,8 @@ function ProductDetail() {
 
     return (
         <Suspense>
-            <div className={cx('container')}>
-                <ProductSingleModal product={product} />
-                <Customer productDetail={product} />
-            </div>
+            <ProductSingleModal product={product} />
+            <Customer productDetail={product} />
         </Suspense>
     );
 }
