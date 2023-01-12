@@ -26,7 +26,7 @@ function Home() {
             <SellOff />
             <div className={cx('content-layout')}>
                 <ProductSingleModal product={singlePeatureProduct} />
-                <ProductCollection />
+                {/* <ProductCollection /> */}
             </div>
         </div>
     );

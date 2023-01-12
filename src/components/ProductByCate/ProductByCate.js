@@ -36,9 +36,11 @@ const ProductByCate = (props) => {
             </ProductsGrid>
 
             {!endLoad && (
-                <Button seeAll onClick={handleSeeMore}>
-                    Xem thêm {categoryProducts.length - loadMore} sản phẩm
-                </Button>
+                <div className={cx('seemore-btn')}>
+                    <Button seeAll onClick={handleSeeMore}>
+                        Xem thêm {categoryProducts.length - loadMore} sản phẩm
+                    </Button>
+                </div>
             )}
         </div>
     );
