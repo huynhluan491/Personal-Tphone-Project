@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 function Laptop() {
     return (
         <div>
-            <ProductByCate categoryFunction={phone} titleCate="Laptop" />
+            <ProductByCate categoryFunction={laptop} titleCate="Laptop" />
         </div>
     );
 }

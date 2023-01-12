@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 
 function HomeProducts(props) {
     const { productCate, headerTitle, headerCate } = props;
-    const productData = productCate();
+    const productData = productCate;
     const titleHeader = headerTitle;
     const cateHeader = headerCate;
     const [productLimit, setProductLimit] = useState(15);

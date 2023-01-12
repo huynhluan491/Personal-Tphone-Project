@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 function AllProducts() {
     return (
         <div>
-            <ProductByCate categoryFunction={phone} titleCate="Tất cả sản phẩm" />
+            <ProductByCate categoryFunction={data} titleCate="Tất cả sản phẩm" />
         </div>
     );
 }

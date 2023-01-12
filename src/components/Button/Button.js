@@ -68,7 +68,7 @@ Button.propTypes = {
     mediumTango: PropTypes.bool,
     seeAll: PropTypes.bool,
     children: PropTypes.node,
-    onClick: PropTypes.string,
+    onClick: PropTypes.func,
     className: PropTypes.string,
 };
 

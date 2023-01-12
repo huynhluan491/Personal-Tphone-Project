@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 const ProductByCate = (props) => {
     const { categoryFunction, titleCate } = props;
-    const categoryProducts = categoryFunction();
+    const categoryProducts = categoryFunction;
     const [loadMore, setLoadMore] = useState(10);
     const [endLoad, setEndLoad] = useState(false);
     const cateproduct = categoryProducts.slice(0, loadMore);

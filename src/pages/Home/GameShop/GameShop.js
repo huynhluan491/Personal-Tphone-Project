@@ -6,8 +6,8 @@ import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
-function GameShop() {
-    const gamePhone = gamingPhone();
+const GameShop = () => {
+    const gamePhone = gamingPhone;
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content-container')}>
@@ -38,6 +38,6 @@ function GameShop() {
             </div>
         </div>
     );
-}
+};
 
 export default GameShop;
