@@ -8,7 +8,7 @@ import { Nodata } from '~/components/Icons';
 const cx = classNames.bind(styles);
 
 function Speaker() {
-    const speakerProducts = speaker();
+    const speakerProducts = speaker;
     return speakerProducts.length > 0 ? (
         <div className={cx('products-mid-layout')}>
             <ProductCate headerCate="Loa" />
@@ -21,8 +21,10 @@ function Speaker() {
     ) : (
         <div className={cx('products-mid-layout')}>
             <ProductCate headerCate="Loa" />
-            <Nodata />
-            <h1>Hiện tại của hàng chưa có sản phầm nào cho danh mục này.</h1>
+            <div className={cx('container')}>
+                <Nodata />
+                <h1>Hiện tại của hàng chưa có sản phầm nào cho danh mục này.</h1>
+            </div>
         </div>
     );
 }
