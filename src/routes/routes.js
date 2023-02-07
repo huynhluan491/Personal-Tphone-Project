@@ -14,6 +14,7 @@ import Speaker from '~/pages/Products/Speaker';
 import Login from '~/pages/Login';
 import Register from '~/pages/Register/Register';
 import Product from '~/pages/ProductDetail';
+import ProductCart from '~/pages/ProductCart';
 
 // Public routes
 
@@ -30,6 +31,7 @@ const publicRoutes = [
     { path: config.routes.login, component: Login, layout: null },
     { path: config.routes.register, component: Register, layout: null },
     { path: config.routes.product, component: Product },
+    { path: config.routes.productcart, component: ProductCart, layout: null },
 ];
 
 const privateRoutes = [];
