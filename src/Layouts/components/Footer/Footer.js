@@ -24,10 +24,6 @@ const socialIcon = [
 ];
 
 const Footer = () => {
-    useEffect(() => {
-        socialIcon.map((icon) => console.log(icon));
-    });
-
     return (
         <div className={cx('footer-container')}>
             <div className={cx('content-wrapper')}>
@@ -55,7 +51,7 @@ const Footer = () => {
                         </form>
                         <div className={cx('social-logo')}>
                             {socialIcon.map((item, index) => (
-                                <div className={cx('icon')} style={{ backgroundColor: item.bgColor }}>
+                                <div key={index} className={cx('icon')} style={{ backgroundColor: item.bgColor }}>
                                     {item.icon}
                                 </div>
                             ))}
