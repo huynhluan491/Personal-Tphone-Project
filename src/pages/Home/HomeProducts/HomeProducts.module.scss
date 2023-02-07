@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: repeat(4, 24%);
     gap: 1rem;
+    justify-content: space-between;
 }
 
 .seeAll-btn {

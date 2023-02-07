@@ -3,19 +3,18 @@ import classNames from 'classnames/bind';
 import styles from './ProductSingleModal.module.scss';
 import { CartIcon, FillStarIcon, HalfStarIcon, MinusIcon, PlusIcon } from '../Icons';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Customer from '../Customer';
 
 const cx = classNames.bind(styles);
 
 function ProductSingleModal({ product }) {
     const dispatch = useDispatch();
-    const [quatity, setQuatity] = useState(1);
+    const [quantity, setQuantity] = useState(1);
 
     const addToCart = () => {
-        setQuatity(1);
-        dispatch({ type: 'ADD_TO_CART', payload: { product: product, quatity: quatity } });
+        setQuantity(1);
+        dispatch({ type: 'ADD_TO_CART', payload: { product: product, quantity: quantity } });
     };
 
     return (
@@ -23,12 +22,12 @@ function ProductSingleModal({ product }) {
             <div className={cx('side-container')}>
                 <div className={cx('left-container')}>
                     <div className={cx('product-img')}>
-                        <img src={product?.image} />
+                        <img src={product?.image} alt="" />
                     </div>
                     <div className={cx('subImage-list')}>
                         <div className={cx('subImg-wrapper')}>
                             <NavLink to={''} className={(nav) => cx('subImg-item', { active: nav.isActive })}>
-                                <img src={product?.image} />
+                                <img src={product?.image} alt="" />
                             </NavLink>
                             <span className={cx('product-color')}>Mặc định</span>
                         </div>

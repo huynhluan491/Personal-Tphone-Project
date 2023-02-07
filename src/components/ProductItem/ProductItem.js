@@ -15,7 +15,7 @@ function ProductItem({ data }) {
                 </div>
                 <Link to={`/product/${data.name}`} onClick={() => window.scrollTo(0, 0)}>
                     <div className={cx('product-img')}>
-                        <img src={data.image} />
+                        <img src={data.image} alt="" />
                     </div>
                     <div className={cx('product-detail')}>
                         <p className={cx('product-name')}>{data.name}</p>

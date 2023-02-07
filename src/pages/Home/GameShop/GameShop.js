@@ -20,8 +20,8 @@ const GameShop = () => {
                 <div className={cx('gamingPhone-list')}>
                     <div className={cx('list-layout')}>
                         {gamePhone?.map((item, index) => (
-                            <div className={cx('item-wrapper')}>
-                                <ProductItem key={index} data={item} />
+                            <div key={index} className={cx('item-wrapper')}>
+                                <ProductItem data={item} />
                             </div>
                         ))}
                     </div>

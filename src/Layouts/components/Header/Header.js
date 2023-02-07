@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Button from '../../../components/Button';
@@ -26,9 +25,11 @@ function Header() {
                         <Button className={cx('search-icon')} whiteNoborder mediumTango>
                             <SearchIcon />
                         </Button>
-                        <Button className={cx('cart-icon')} whiteNoborder mediumTango>
-                            <CartIcon />
-                        </Button>
+                        <Link to={config.routes.productcart}>
+                            <Button className={cx('cart-icon')} whiteNoborder mediumTango>
+                                <CartIcon />
+                            </Button>
+                        </Link>
                     </div>
                     <div className={cx('user-login')}>
                         <div className={cx('icon')}>

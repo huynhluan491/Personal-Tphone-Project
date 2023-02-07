@@ -7,19 +7,20 @@ const initState = {
 const CartReducer = (state = initState, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
-            const { product, quatity } = action.payload;
+            const { product, quantity } = action.payload;
             const check = state.products.find((pr) => pr.id === product.id);
             if (check) {
                 return state;
             } else {
-                const Tprice = state.totalPrice + product.price * quatity;
-                const Tquatity = state.totalQuantities + quatity;
+                const Tprice = state.totalPrice + product.price * quantity;
+                const Tquantity = state.totalQuantities + quantity;
+                product.quantity = quantity;
 
                 return {
                     ...state,
                     products: [...state.products, product],
                     totalPrice: Tprice,
-                    totalQuantities: Tquatity,
+                    totalQuantities: Tquantity,
                 };
             }
         default:
