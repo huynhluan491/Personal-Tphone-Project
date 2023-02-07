@@ -11,6 +11,7 @@ const routes = {
     login: '/login',
     register: '/register',
     product: '/product/:nameproduct',
+    productcart: '/productcart',
 };
 
 export default routes;
