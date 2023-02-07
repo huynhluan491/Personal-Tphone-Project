@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './ProductCart.module.scss';
-import { MinusIcon, PlusIcon, PreviousIcon } from '~/components/Icons';
+import { MinusIcon, PlusIcon, PreviousIcon, ProductRemove } from '~/components/Icons';
 import { Link } from 'react-router-dom';
 import config from '~/config';
 import { useSelector } from 'react-redux';
@@ -34,7 +34,13 @@ function ProductCart() {
                                     <img src={item.image} alt="" />
                                 </div>
                                 <div className={cx('product-detail')}>
-                                    <span className={cx('product-name')}>{item.name}</span>
+                                    {item?.old_price > 0 ? (
+                                        <span className={cx('sale-popup')}>Giảm {item?.old_price * 10}%</span>
+                                    ) : null}
+                                    <div className={cx('product-header')}>
+                                        <span className={cx('product-name')}>{item.name}</span>
+                                        <ProductRemove className={cx('remove-icon')} />
+                                    </div>
                                     <div className={cx('product-quantity')}>
                                         <div className={cx('quatity-controller')}>
                                             <button>
@@ -51,6 +57,15 @@ function ProductCart() {
                                                     style: 'currency',
                                                     currency: 'VND',
                                                 })}
+                                            </span>
+                                            <span className={cx('org-price')}>
+                                                {(item?.price * item?.old_price * item.quantity).toLocaleString(
+                                                    'it-IT',
+                                                    {
+                                                        style: 'currency',
+                                                        currency: 'VND',
+                                                    },
+                                                )}
                                             </span>
                                         </div>
                                     </div>

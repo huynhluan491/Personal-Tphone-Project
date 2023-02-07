@@ -23,6 +23,9 @@ const CartReducer = (state = initState, action) => {
                     totalQuantities: Tquantity,
                 };
             }
+
+        case 'DELETE_PRODUCT':
+
         default:
             return state;
     }
