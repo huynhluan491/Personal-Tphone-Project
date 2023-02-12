@@ -3,15 +3,23 @@ import classNames from 'classnames/bind';
 import styles from './ProductItem.module.scss';
 import Button from '~/components/Button';
 import { Link, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function ProductItem({ data }) {
+    const dispatch = useDispatch();
+
+    const addToCart = () => {
+        dispatch({ type: 'ADD_TO_CART', payload: { product: data, quantity: 1 } });
+    };
+
     return (
         <div className={cx('wrap-product')}>
             <div className={cx('item-product')}>
                 <div className={cx('add-btn')}>
-                    <Button addToCart smallTango />
+                    <Button addToCart smallTango onClick={() => addToCart()} />
                 </div>
                 <Link to={`/product/${data.name}`} onClick={() => window.scrollTo(0, 0)}>
                     <div className={cx('product-img')}>
