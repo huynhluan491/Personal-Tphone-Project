@@ -13,8 +13,20 @@ function ProductSingleModal({ product }) {
     const [quantity, setQuantity] = useState(1);
 
     const addToCart = () => {
-        setQuantity(1);
         dispatch({ type: 'ADD_TO_CART', payload: { product: product, quantity: quantity } });
+        setQuantity(1);
+    };
+
+    const IncreaseQuantity = () => {
+        setQuantity((prev) => prev + 1);
+    };
+
+    const DecreaseQuantity = () => {
+        if (quantity > 1) {
+            setQuantity((prev) => prev - 1);
+        } else {
+            setQuantity(1);
+        }
     };
 
     return (
@@ -67,11 +79,11 @@ function ProductSingleModal({ product }) {
                         {/* Button quatity */}
                         <div className={cx('price-info')}>
                             <div className={cx('quatity-option')}>
-                                <button className={cx('decrease-btn')}>
-                                    <MinusIcon />
+                                <button className={cx('decrease-btn')} onClick={() => DecreaseQuantity()}>
+                                    {quantity === 1 ? <MinusIcon className={cx('disabled')} /> : <MinusIcon />}
                                 </button>
-                                <p className={cx('quatity-text')}>1</p>
-                                <button className={cx('increase-btn')}>
+                                <p className={cx('quatity-text')}>{quantity}</p>
+                                <button className={cx('increase-btn')} onClick={() => IncreaseQuantity()}>
                                     <PlusIcon />
                                 </button>
                             </div>
