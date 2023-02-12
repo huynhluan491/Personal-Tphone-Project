@@ -134,6 +134,19 @@
     width: 15%;
 }
 
+.cart-empty .empty-img {
+    width: 100%;
+    text-align: center;
+
+    img {
+        width: 30%;
+    }
+}
+
+.cart-empty-footer {
+    text-align: center;
+}
+
 // @include respond(phone) {
 //     .product-wrapper {
 //         grid-template-columns: none;

@@ -3,7 +3,7 @@ import styles from './ProductCart.module.scss';
 import { MinusIcon, PlusIcon, PreviousIcon, ProductRemove } from '~/components/Icons';
 import { Link } from 'react-router-dom';
 import config from '~/config';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
@@ -11,9 +11,19 @@ const cx = classNames.bind(styles);
 function ProductCart() {
     const { products, totalPrice, totalQuantities } = useSelector((state) => state.CartReducer);
 
-    useEffect(() => {
-        console.log(products);
-    });
+    const dispatch = useDispatch();
+
+    const increase = (productId) => {
+        dispatch({ type: 'INCREASE', payload: productId });
+    };
+
+    const decrease = (productId) => {
+        dispatch({ type: 'DECREASE', payload: productId });
+    };
+
+    const removeProduct = (productId) => {
+        dispatch({ type: 'DELETE', payload: productId });
+    };
 
     return (
         <div className={cx('wrapper')}>
@@ -39,15 +49,17 @@ function ProductCart() {
                                     ) : null}
                                     <div className={cx('product-header')}>
                                         <span className={cx('product-name')}>{item.name}</span>
-                                        <ProductRemove className={cx('remove-icon')} />
+                                        <button onClick={() => removeProduct(item.id)}>
+                                            <ProductRemove className={cx('remove-icon')} />
+                                        </button>
                                     </div>
                                     <div className={cx('product-quantity')}>
                                         <div className={cx('quatity-controller')}>
-                                            <button>
+                                            <button onClick={() => decrease(item.id)}>
                                                 <MinusIcon />
                                             </button>
                                             <p className={cx('quatity-text')}>{item.quantity}</p>
-                                            <button>
+                                            <button onClick={() => increase(item.id)}>
                                                 <PlusIcon />
                                             </button>
                                         </div>
@@ -59,13 +71,10 @@ function ProductCart() {
                                                 })}
                                             </span>
                                             <span className={cx('org-price')}>
-                                                {(item?.price * item?.old_price * item.quantity).toLocaleString(
-                                                    'it-IT',
-                                                    {
-                                                        style: 'currency',
-                                                        currency: 'VND',
-                                                    },
-                                                )}
+                                                {(item?.price * item?.old_price).toLocaleString('it-IT', {
+                                                    style: 'currency',
+                                                    currency: 'VND',
+                                                })}
                                             </span>
                                         </div>
                                     </div>
