@@ -1,15 +1,22 @@
 import classNames from 'classnames/bind';
 import styles from './ProductCart.module.scss';
 import { MinusIcon, PlusIcon, PreviousIcon, ProductRemove } from '~/components/Icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import config from '~/config';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
 
 function ProductCart() {
     const { products, totalPrice, totalQuantities } = useSelector((state) => state.CartReducer);
+
+    useEffect(() => {
+        console.log(products);
+    });
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -29,7 +36,7 @@ function ProductCart() {
         <div className={cx('wrapper')}>
             <div className={cx('cart-container')}>
                 <div className={cx('cart-header')}>
-                    <button className={cx('back-btn')}>
+                    <button className={cx('back-btn')} onClick={() => navigate(-1)}>
                         <PreviousIcon />
                         <p className={cx('btn-mean')}>Trở về</p>
                     </button>
@@ -93,9 +100,9 @@ function ProductCart() {
                                 Bạn chưa thêm sản phẩm nào.
                             </h3>
                             <Link to={config.routes.allproducts}>
-                                <button onClick={() => window.scrollTo(0, 0)} className={cx('see-product-btn')}>
+                                <Button seeAll onClick={() => window.scrollTo(0, 0)} className={cx('see-product-btn')}>
                                     Xem sản phẩm
-                                </button>
+                                </Button>
                             </Link>
                         </div>
                     </div>
