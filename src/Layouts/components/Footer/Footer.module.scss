@@ -1,5 +1,6 @@
 .footer-container {
     background-color: rgb(16 91 89/1);
+    margin-top: var(--default-space-top-div);
 }
 
 .content-wrapper {
@@ -87,6 +88,7 @@
     .icon {
         padding: 8px;
         border-radius: 99999px;
+        margin-right: 1rem;
     }
 }
 
