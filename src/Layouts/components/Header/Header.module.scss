@@ -18,14 +18,10 @@
 }
 
 .user-container {
-
-
     .login-btn {
-    
     }
-    
+
     .register-btn {
-        
     }
 }
 
@@ -61,14 +57,24 @@
     }
 }
 
-
 .services-container {
-
     .search-icon {
-        
     }
-    
+
     .cart-icon {
         margin: 0 10px;
+        position: relative;
+
+        .cart-quantity {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            font-size: 1.2rem;
+            color: white;
+            background-color: rgb(253 127 40/1);
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            border-radius: 99999px;
+        }
     }
 }

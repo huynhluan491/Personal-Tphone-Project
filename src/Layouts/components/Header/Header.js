@@ -1,19 +1,28 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Button from '../../../components/Button';
-import { CartIcon, MenuIcon, SearchIcon } from '../../../components/Icons';
-import { Link } from 'react-router-dom';
+import { BackNavigate, CartIcon, MenuIcon, SearchIcon } from '../../../components/Icons';
+import { Link, useNavigate } from 'react-router-dom';
 import config from '~/config';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const { products } = useSelector((state) => state.CartReducer);
+
+    const navigate = useNavigate();
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
+                <button onClick={() => navigate(-1)}>
+                    <BackNavigate />
+                </button>
                 <Button whiteNoborder mediumTango>
                     <MenuIcon />
                 </Button>
@@ -28,6 +37,7 @@ function Header() {
                         <Link to={config.routes.productcart}>
                             <Button className={cx('cart-icon')} whiteNoborder mediumTango>
                                 <CartIcon />
+                                <p className={cx('cart-quantity')}>{products.length}</p>
                             </Button>
                         </Link>
                     </div>
