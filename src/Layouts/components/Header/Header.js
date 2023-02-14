@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 const cx = classNames.bind(styles);
 
 function Header() {
-    const { products } = useSelector((state) => state.CartReducer);
+    const { products, totalQuantities } = useSelector((state) => state.CartReducer);
 
     const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ function Header() {
                         <Link to={config.routes.productcart}>
                             <Button className={cx('cart-icon')} whiteNoborder mediumTango>
                                 <CartIcon />
-                                <p className={cx('cart-quantity')}>{products.length}</p>
+                                <p className={cx('cart-quantity')}>{totalQuantities}</p>
                             </Button>
                         </Link>
                     </div>

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Freeship.module.scss';
 import { CloseIcon } from '../Icons';
+import CartAddedModal from '../CartAddedModal/CartAddedModal';
 
 const cx = classNames.bind(styles);
 

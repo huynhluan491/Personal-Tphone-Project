@@ -10,14 +10,21 @@ const CartReducer = (state = initState, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
             const { product, quantity } = action.payload;
-            const check = state.products.find((pr) => pr.id === product.id);
-            if (check) {
-                return state;
-            } else {
-                const Tprice = state.totalPrice + product.price * quantity;
-                const Tquantity = state.totalQuantities + quantity;
-                product.quantity = quantity;
+            const checkedProduct = state.products.find((pr) => pr.id === product.id);
+            const indexProduct = state.products.indexOf((pr) => pr.id === product.id);
 
+            if (checkedProduct) {
+                checkedProduct.quantity += 1;
+                state.products[indexProduct] = checkedProduct; //thay thế
+                return {
+                    ...state,
+                    totalPrice: state.totalPrice + checkedProduct.price * checkedProduct.quantity,
+                    totalQuantities: state.totalQuantities + 1,
+                };
+            } else {
+                product.quantity = quantity;
+                let Tprice = state.totalPrice + product.price * quantity;
+                let Tquantity = state.totalQuantities + quantity;
                 return {
                     ...state,
                     products: [...state.products, product],
