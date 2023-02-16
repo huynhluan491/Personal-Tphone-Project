@@ -10,7 +10,7 @@ const ProductReducer = (state = initState, action) => {
         case 'PRODUCT':
             return {
                 ...state,
-                product: state.products.find((product) => product.name == action.nameproduct),
+                product: state.products.find((product) => product.name === action.nameproduct),
             };
         default:
             return state;
