@@ -11,9 +11,13 @@ const cx = classNames.bind(styles);
 function MainLayout({ children }) {
     return (
         <div className={cx('wrapper')}>
-            <FreeShipNotification />
-            <Header />
-            <Menu_Nav />
+            <div className={cx('fixed-top')}>
+                <FreeShipNotification />
+                <div className={cx('header-container')}>
+                    <Header />
+                    <Menu_Nav />
+                </div>
+            </div>
             <div className={cx('content')}>{children}</div>
             <Footer />
         </div>

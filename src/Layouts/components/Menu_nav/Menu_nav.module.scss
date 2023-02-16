@@ -1,7 +1,7 @@
 .wrapper {
     width: 100%;
     background-color: rgb(237 237 237);
-    box-shadow: 0 0 #0000;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     font-size: 1.6rem;
     color: #000000;
 }
@@ -15,7 +15,6 @@
 }
 
 .nav-item {
-
     position: relative;
 
     &.active {
@@ -23,7 +22,7 @@
     }
 
     &.active::before {
-        content: " ";
+        content: ' ';
         position: absolute;
         background-color: #fd7f28;
         border-radius: 50%;
