@@ -11,13 +11,7 @@ const cx = classNames.bind(styles);
 
 function ProductCart() {
     const { products, totalPrice, totalQuantities } = useSelector((state) => state.CartReducer);
-
-    useEffect(() => {
-        console.log(products);
-    });
-
     const navigate = useNavigate();
-
     const dispatch = useDispatch();
 
     const increase = (productId) => {
