@@ -1,41 +1,39 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './ProductItem.module.scss';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Button from '~/components/Button';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
-import CartAddedModal from '../CartAddedModal/CartAddedModal';
 
 const cx = classNames.bind(styles);
 
 function ProductItem({ data }) {
-    const [showPopup, setShowPopup] = useState(false);
     const dispatch = useDispatch();
 
     const addToCart = () => {
         dispatch({ type: 'ADD_TO_CART', payload: { product: data, quantity: 1 } });
     };
 
-    const checkPopup = () => {
-        setShowPopup(true);
-        setTimeout(() => {
-            setShowPopup(false);
-        }, 3000);
-        console.log('check pop up');
+    const showToast = () => {
+        toast.success('Thêm vào giỏ hàng thành công!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000,
+        });
     };
 
     const handleButton = () => {
         addToCart();
-        checkPopup();
+        showToast();
     };
 
     return (
         <div className={cx('wrap-product')}>
-            {showPopup && <CartAddedModal />}
             <div className={cx('item-product')}>
                 <div className={cx('add-btn')}>
                     <Button addToCart smallTango onClick={() => handleButton()} />
+                    <ToastContainer hideProgressBar={true} />
                 </div>
                 <Link to={`/product/${data.name}`} onClick={() => window.scrollTo(0, 0)}>
                     <div className={cx('product-img')}>

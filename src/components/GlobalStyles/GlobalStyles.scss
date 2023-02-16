@@ -14,6 +14,11 @@
     --default-width-content: 70%;
     --default-space-top-div: 6rem;
     --default-space-bottom-div: 6rem;
+
+    --toastify-color-success: #fff; // mau bg icon toast
+    --toastify-text-color-light: #fff; // text color
+    --toastify-color-light: #4caf50; // bg color of toast container
+    --toastify-toast-width: 28rem; //container width
 }
 
 * {
@@ -79,6 +84,25 @@ a[href] {
 .products-mid-layout {
     width: var(--default-width-content);
     margin: auto;
+}
+
+//TOASTIFY REACTJS LIB CUSTOMIZE
+//https://fkhadra.github.io/react-toastify/how-to-style/
+.Toastify__toast {
+    box-shadow: none;
+    border-radius: 999999px;
+}
+.Toastify__toast-body {
+    padding: 1rem 1rem 1rem 1rem;
+}
+.Toastify__close-button {
+    display: none;
+}
+.Toastify__toast-icon {
+    width: 3rem;
+}
+.Toastify__toast-body > div:last-child {
+    font-size: 1.2rem;
 }
 
 @mixin respond($breakpoint) {
