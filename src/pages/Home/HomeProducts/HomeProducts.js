@@ -4,7 +4,6 @@ import styles from './HomeProducts.module.scss';
 import ProductItem from '~/components/ProductItem';
 import ProductCate from '~/components/ProductCateHeader';
 import Button from '~/components/Button';
-import CartAddedModal from '~/components/CartAddedModal/CartAddedModal';
 
 const cx = classNames.bind(styles);
 
