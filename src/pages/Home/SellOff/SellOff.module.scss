@@ -1,3 +1,5 @@
+@import '../../../components/GlobalStyles/GlobalStyles.scss';
+
 .content-container {
     width: var(--default-width-content);
     margin: auto;
@@ -121,5 +123,37 @@
 
     .slide-name {
         color: white;
+    }
+}
+
+@include respond(phone) {
+    .content-container {
+        width: var(--default-width-phone-content);
+    }
+
+    .product-content-wrapper {
+        flex-direction: column-reverse;
+
+        .product-detail,
+        .product-image {
+            width: unset;
+        }
+
+        .buy-btn {
+            button {
+                margin-bottom: unset;
+                margin-top: 2rem;
+                margin-left: 60%;
+                padding: 1.5rem 3rem;
+            }
+        }
+    }
+
+    .content-controller {
+        padding-bottom: unset;
+    }
+
+    .button-container {
+        width: 30%;
     }
 }

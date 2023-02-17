@@ -1,3 +1,5 @@
+@import '../../../components/GlobalStyles/GlobalStyles.scss';
+
 .wrapper {
     width: 100%;
     padding-top: 20rem;
@@ -41,5 +43,11 @@
             color: #000;
             background-color: rgb(255 255 255/1);
         }
+    }
+}
+
+@include respond(phone) {
+    .wrapper {
+        padding-top: 12rem;
     }
 }

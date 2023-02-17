@@ -1,3 +1,5 @@
+@import '../../../components/GlobalStyles/GlobalStyles.scss';
+
 .wrapper {
     width: 100%;
     background-color: rgb(237 237 237);
@@ -30,5 +32,11 @@
         width: 8px;
         top: -10px;
         left: 50%;
+    }
+}
+
+@include respond(phone) {
+    .wrapper {
+        display: none;
     }
 }

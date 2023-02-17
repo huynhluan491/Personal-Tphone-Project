@@ -1,3 +1,4 @@
+@import '../../../components/GlobalStyles/GlobalStyles.scss';
 .wrapper {
     width: 100%;
     background-color: #e6e6e6;
@@ -76,5 +77,15 @@
             padding-right: 0.5rem;
             border-radius: 99999px;
         }
+    }
+}
+
+@include respond(phone) {
+    .container {
+        width: var(--default-width-phone-content);
+    }
+
+    .user-login {
+        display: none;
     }
 }

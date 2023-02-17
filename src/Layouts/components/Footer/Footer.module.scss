@@ -1,3 +1,4 @@
+@import '../../../components/GlobalStyles/GlobalStyles.scss';
 .footer-container {
     background-color: rgb(16 91 89/1);
     margin-top: var(--default-space-top-div);
@@ -83,6 +84,7 @@
 
 .social-logo {
     display: flex;
+    flex-wrap: wrap;
     padding-top: 2rem;
 
     .icon {
@@ -94,6 +96,7 @@
 
 .payment-available {
     display: flex;
+    flex-wrap: wrap;
     color: #ffffff;
     gap: 2rem;
     padding-top: 2rem;
@@ -105,6 +108,7 @@
 
     .payment-unit {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 1rem;
 
@@ -119,5 +123,26 @@
             width: 5rem;
             object-fit: contain;
         }
+    }
+}
+
+@include respond(phone) {
+    .content-wrapper {
+        width: var(--default-width-phone-content);
+    }
+    .content-layout {
+        flex-direction: column-reverse;
+        gap: unset;
+    }
+    .payment-available {
+        justify-content: center;
+
+        .payment-unit {
+            justify-content: center;
+        }
+    }
+
+    .form-container {
+        margin-top: 2rem;
     }
 }

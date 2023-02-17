@@ -1,5 +1,8 @@
+@import '../../components/GlobalStyles/GlobalStyles.scss';
+
 .side-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     gap: 2rem;
     margin-top: 4rem;
@@ -129,6 +132,7 @@
 
     .price-text {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
 
         .saled-price {
@@ -247,4 +251,12 @@
 .suggestion-products {
     display: flex;
     overflow-y: hidden;
+}
+
+@include respond(phone) {
+    .price-text .saled-price {
+        &::after {
+            width: 65%;
+        }
+    }
 }
