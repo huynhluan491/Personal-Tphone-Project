@@ -1,5 +1,13 @@
+@import '../../components/GlobalStyles/GlobalStyles.scss';
+
 .seemore-btn {
     display: flex;
     justify-content: center;
     margin: 4rem 0;
+}
+
+@include respond(phone) {
+    .products-mid-layout {
+        width: var(--default-width-phone-content);
+    }
 }
