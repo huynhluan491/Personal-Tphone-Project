@@ -259,4 +259,22 @@
             width: 65%;
         }
     }
+    .product-img {
+        padding: unset;
+        img {
+            width: 100%;
+        }
+    }
+
+    .left-container {
+        margin-top: 9rem;
+    }
+
+    .price-info .price-text {
+        .saled-price {
+            &::after {
+                width: 60%;
+            }
+        }
+    }
 }
