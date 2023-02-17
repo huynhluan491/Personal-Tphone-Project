@@ -9,6 +9,7 @@
 
 .left-container {
     flex: 1 1;
+    margin-top: 9rem;
 
     .subImage-list {
         display: flex;
@@ -88,7 +89,7 @@
 }
 
 .product-img {
-    padding: 7rem 0;
+    padding: 2rem 0;
     background-color: rgb(255 255 255 /1);
     border-radius: 1rem;
     box-shadow: 0 0 #0000, 0 0 #0000, (0 25px 50px -12px rgba(0, 0, 0, 0.25));
@@ -262,15 +263,9 @@
         }
     }
     .product-img {
-        padding: unset;
-        padding: 2rem 0;
         img {
             width: 100%;
         }
-    }
-
-    .left-container {
-        margin-top: 9rem;
     }
 
     .price-info .price-text {
