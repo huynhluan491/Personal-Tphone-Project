@@ -1,3 +1,5 @@
+@import '../../components/GlobalStyles/GlobalStyles.scss';
+
 .wrapper {
     width: 80%;
     margin: auto;
@@ -151,8 +153,8 @@
     margin-top: var(--default-space-top-div);
 }
 
-// @include respond(phone) {
-//     .product-wrapper {
-//         grid-template-columns: none;
-//     }
-// }
+@include respond(phone) {
+    .product-wrapper {
+        grid-template-columns: none;
+    }
+}

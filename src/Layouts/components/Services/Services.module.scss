@@ -1,5 +1,7 @@
+@import '../../../components/GlobalStyles/GlobalStyles.scss';
 .wrapper {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 96px;
@@ -61,4 +63,35 @@
     bottom: -2px;
     left: 0;
     z-index: -1;
+}
+
+@include respond(phone) {
+    .wrapper {
+        margin-top: 1rem;
+    }
+    .service-container {
+        flex-direction: column;
+        .service-img {
+            width: unset;
+            text-align: center;
+        }
+    }
+    .service-content {
+        width: 100%;
+        margin-top: 0;
+        padding-left: 0;
+        text-align: center;
+        .title {
+            font-size: 1.2rem;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+    }
+
+    .service-content .title::after {
+        left: 1.4rem;
+    }
 }

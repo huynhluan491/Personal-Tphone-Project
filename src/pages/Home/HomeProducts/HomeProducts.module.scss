@@ -1,3 +1,5 @@
+@import '../../../components/GlobalStyles/GlobalStyles.scss';
+
 .products-container {
     width: var(--default-layout-content);
     display: grid;
@@ -10,4 +12,12 @@
     display: flex;
     justify-content: center;
     padding-top: 2.5rem;
+}
+
+//////////////////////////
+/// RESPONSIVE
+@include respond(phone) {
+    .products-container {
+        grid-template-columns: none;
+    }
 }

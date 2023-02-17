@@ -4,7 +4,6 @@ import { MinusIcon, PlusIcon, PreviousIcon, ProductRemove } from '~/components/I
 import { Link, useNavigate } from 'react-router-dom';
 import config from '~/config';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import Button from '~/components/Button/Button';
 
 const cx = classNames.bind(styles);
