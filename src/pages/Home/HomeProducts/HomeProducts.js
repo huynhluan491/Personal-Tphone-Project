@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './HomeProducts.module.scss';
 import ProductItem from '~/components/ProductItem';
@@ -15,6 +15,24 @@ function HomeProducts(props) {
     const titleHeader = headerTitle;
     const cateHeader = headerCate;
     const [productLimit, setProductLimit] = useState(15);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+        const handleMediaQueryChange = () => {
+            if (mediaQuery.matches) {
+                setProductLimit(6);
+            } else {
+                setProductLimit(15);
+            }
+        };
+
+        handleMediaQueryChange();
+
+        mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+        return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
