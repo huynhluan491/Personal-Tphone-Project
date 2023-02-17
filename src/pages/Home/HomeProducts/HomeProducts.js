@@ -4,6 +4,8 @@ import styles from './HomeProducts.module.scss';
 import ProductItem from '~/components/ProductItem';
 import ProductCate from '~/components/ProductCateHeader';
 import Button from '~/components/Button';
+import { Link } from 'react-router-dom';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -24,7 +26,11 @@ function HomeProducts(props) {
                         .map((product, index) => <ProductItem key={index} data={product} />)}
             </div>
             <div className={cx('seeAll-btn')}>
-                <Button seeAll>Xem tất cả</Button>
+                <Link to={config.routes.allproducts}>
+                    <Button seeAll onClick={() => window.scrollTo(0, 0)}>
+                        Xem tất cả
+                    </Button>
+                </Link>
             </div>
         </div>
     );

@@ -2,4 +2,5 @@
     display: grid;
     grid-template-columns: repeat(4, 24%);
     justify-content: space-between;
+    padding-top: var(--default-space-to-header);
 }
