@@ -23,10 +23,9 @@
 }
 
 .service-container {
-
     &:hover {
         .service-img {
-            transform: translate(0,-2rem);
+            transform: translate(0, -2rem);
         }
     }
 }
@@ -34,7 +33,6 @@
 .service-img {
     transition: transform 0.5s ease-in-out;
 }
-
 
 .service-content {
     padding-left: 2rem;
@@ -44,7 +42,7 @@
     .title {
         font-size: 1.8rem;
         position: relative;
-        z-index: 99999;
+        z-index: 0;
         font-weight: 700;
     }
 
