@@ -154,7 +154,29 @@
 }
 
 @include respond(phone) {
+    .wrapper {
+        width: 90%;
+    }
+
+    .product-quantity {
+        flex-wrap: wrap-reverse;
+    }
+
     .product-wrapper {
         grid-template-columns: none;
+    }
+
+    .product-wrapper .product-item .product-detail {
+        width: 75%;
+    }
+
+    .product-wrapper .product-item .product-img {
+        width: 50%;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
     }
 }
