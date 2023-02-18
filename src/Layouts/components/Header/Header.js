@@ -8,9 +8,20 @@ import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
+import { NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
+
+const navItems = [
+    { title: 'Trang chủ', to: config.routes.home },
+    { title: 'Tất cả sản phẩm', to: config.routes.allproducts },
+    { title: 'Điện thoại', to: config.routes.phone },
+    { title: 'Laptop', to: config.routes.laptop },
+    { title: 'Tablet', to: config.routes.tablet },
+    { title: 'Smart watch', to: config.routes.smartclock },
+    { title: 'Thiết bị mạng', to: config.routes.networkdevice },
+    { title: 'Bàn phím', to: config.routes.keyboard },
+    { title: 'Loa', to: config.routes.speaker },
+];
 
 function Header() {
     const { products, totalQuantities } = useSelector((state) => state.CartReducer);
@@ -48,6 +59,15 @@ function Header() {
                         <div className={cx('content')}>Đăng nhập</div>
                     </div>
                 </div>
+            </div>
+            <div className={cx('navigation-container')}>
+                <nav className={cx('nav-item-list')}>
+                    {navItems.map((item, index) => (
+                        <NavLink key={index} className={(nav) => cx('nav-item', { active: nav.isActive })} to={item.to}>
+                            <span>{item.title}</span>
+                        </NavLink>
+                    ))}
+                </nav>
             </div>
         </div>
     );
