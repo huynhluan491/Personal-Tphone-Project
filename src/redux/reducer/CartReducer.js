@@ -1,77 +1,58 @@
-const initState = {
-    products: [],
-    totalPrice: 0,
-    totalQuantities: 0,
-};
+const cartReducer = (state = { products: [], totalPrice: 0, totalQuantities: 0 }, action) => {
+    const { products, totalPrice, totalQuantities } = state; // declare variables based state object
+    const { type, payload } = action; // declare variables passed from action
 
-const CartReducer = (state = initState, action) => {
-    let findPro;
-    let index;
-    switch (action.type) {
-        case 'ADD_TO_CART':
-            const { product, quantity } = action.payload;
-            const checkedProduct = state.products.find((pr) => pr.id === product.id);
-            const indexProduct = state.products.indexOf((pr) => pr.id === product.id);
+    switch (type) {
+        case 'ADD_TO_CART': {
+            const { product, quantity } = payload; // variables declaration
+            const index = products.findIndex((p) => p.id === product.id);
+            const updatedTotalPrice = totalPrice + product.price * quantity;
+            const updatedTotalQuantities = totalQuantities + quantity;
 
-            if (checkedProduct) {
-                checkedProduct.quantity += 1;
-                state.products[indexProduct] = checkedProduct; //thay thế
-                return {
-                    ...state,
-                    totalPrice: state.totalPrice + checkedProduct.price * checkedProduct.quantity,
-                    totalQuantities: state.totalQuantities + 1,
-                };
+            if (index !== -1) {
+                products[index].quantity += quantity; // increase quantity by quantity passed from dispatch
+                return { ...state, totalPrice: updatedTotalPrice, totalQuantities: updatedTotalQuantities };
             } else {
                 product.quantity = quantity;
-                let Tprice = state.totalPrice + product.price * quantity;
-                let Tquantity = state.totalQuantities + quantity;
                 return {
                     ...state,
-                    products: [...state.products, product],
-                    totalPrice: Tprice,
-                    totalQuantities: Tquantity,
+                    products: [...products, product],
+                    totalPrice: updatedTotalPrice,
+                    totalQuantities: updatedTotalQuantities,
                 };
             }
-
-        case 'INCREASE':
-            findPro = state.products.find((pr) => pr.id === action.payload);
-            index = state.products.findIndex((pr) => pr.id === action.payload);
-            findPro.quantity += 1;
-            state.products[index] = findPro;
-            return {
-                ...state,
-                totalPrice: state.totalPrice + findPro.price,
-                totalQuantities: state.totalQuantities + 1,
-            };
-
-        case 'DECREASE':
-            findPro = state.products.find((pr) => pr.id === action.payload);
-            index = state.products.findIndex((pr) => pr.id === action.payload);
-            if (findPro.quantity > 1) {
-                findPro.quantity -= 1;
-                state.products[index] = findPro;
-                return {
-                    ...state,
-                    totalPrice: state.totalPrice + findPro.price,
-                    totalQuantities: state.totalQuantities - 1,
-                };
+        }
+        case 'INCREASE': {
+            const findProduct = products.find((p) => p.id === payload);
+            const index = products.findIndex((p) => p.id === payload);
+            findProduct.quantity += 1;
+            products[index] = findProduct;
+            return { ...state, totalPrice: totalPrice + findProduct.price, totalQuantities: totalQuantities + 1 };
+        }
+        case 'DECREASE': {
+            const findProduct = products.find((p) => p.id === payload);
+            const index = products.findIndex((p) => p.id === payload);
+            if (findProduct.quantity > 1) {
+                findProduct.quantity -= 1;
+                products[index] = findProduct;
+                return { ...state, totalPrice: totalPrice + findProduct.price, totalQuantities: totalQuantities - 1 };
             } else {
                 return state;
             }
-
-        case 'DELETE':
-            findPro = state.products.find((pr) => pr.id === action.payload);
-            const filter = state.products.filter((pr) => pr.id !== action.payload);
+        }
+        case 'DELETE': {
+            const findProduct = products.find((p) => p.id === payload);
+            const filteredProducts = products.filter((p) => p.id !== payload);
             return {
                 ...state,
-                products: filter,
-                totalPrice: state.totalPrice - findPro.price * findPro.quantity,
-                totalQuantities: state.totalQuantities - findPro.quantity,
+                products: filteredProducts,
+                totalPrice: totalPrice - findProduct.price * findProduct.quantity,
+                totalQuantities: totalQuantities - findProduct.quantity,
             };
-
+        }
         default:
             return state;
     }
 };
 
-export default CartReducer;
+export default cartReducer;
