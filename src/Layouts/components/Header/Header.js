@@ -115,9 +115,9 @@ function Header() {
             </div>
             {showMenu && (
                 <div className={cx('sidebar_menu-container')}>
-                    <button whiteNoborder onClick={() => setShowMenu(false)}>
+                    <Button whiteNoborder onClick={() => setShowMenu(false)}>
                         <BackNavigate />
-                    </button>
+                    </Button>
                     <ul className={cx('cate-list')}>
                         <li className={cx('cate-item')} onClick={() => setShowCate(!showCate)}>
                             <p className={cx('title')}>Danh mục</p>
@@ -125,16 +125,16 @@ function Header() {
                         </li>
                         {showCate &&
                             navItems.map((item, index) => (
-                                <Link to={item.to} onClick={() => setShowMenu(false)}>
-                                    <li className={cx('cate-item')}>
+                                <Link key={index} to={item.to} onClick={() => setShowMenu(false)}>
+                                    <li className={cx('sub-cate-item')}>
                                         <p className={cx('title')}>{item.title}</p>
                                     </li>
                                 </Link>
                             ))}
-                        <li className={cx('cate-item')} onClick={() => setShowCate(!showCate)}>
+                        <li className={cx('cate-item')}>
                             <p className={cx('title')}>Phần thưởng</p>
                         </li>
-                        <li className={cx('cate-item')} onClick={() => setShowCate(!showCate)}>
+                        <li className={cx('cate-item')}>
                             <p className={cx('title')}>Blog</p>
                         </li>
                     </ul>

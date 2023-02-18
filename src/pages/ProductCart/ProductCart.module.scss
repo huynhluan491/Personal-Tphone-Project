@@ -1,7 +1,7 @@
 @import '../../components/GlobalStyles/GlobalStyles.scss';
 
 .wrapper {
-    width: 100%;
+    width: 80%;
     margin: auto;
 }
 
@@ -43,7 +43,7 @@
     justify-content: center;
 
     .product-item {
-        box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0 #0000, 0 0 #0000, 10px 25px 50px -12px rgba(0, 0, 0, 0.25);
         display: flex;
         background-color: rgb(255 255 255/1);
         padding: 2rem;
@@ -156,6 +156,7 @@
 
 @include respond(phone) {
     .wrapper {
+        width: 100%;
         position: absolute;
     }
 
