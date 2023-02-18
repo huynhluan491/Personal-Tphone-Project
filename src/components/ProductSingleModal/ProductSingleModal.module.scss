@@ -4,12 +4,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 4rem;
+    padding-top: 20rem;
 }
 
 .left-container {
     flex: 1 1;
-    margin-top: 9rem;
 
     .subImage-list {
         display: flex;
@@ -152,7 +151,7 @@
                 height: 1.7rem;
                 top: 1.4rem;
                 left: 0;
-                width: 100%;
+                width: 70%;
             }
         }
 
@@ -256,7 +255,13 @@
 @include respond(phone) {
     .side-container {
         flex-direction: column;
+        padding-top: 4rem;
     }
+
+    .left-container {
+        margin-top: 9rem;
+    }
+
     .price-text .saled-price {
         &::after {
             width: 65%;
