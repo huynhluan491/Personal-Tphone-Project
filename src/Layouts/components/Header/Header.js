@@ -10,6 +10,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Search from '~/components/Search/Search';
 const cx = classNames.bind(styles);
 
 const navItems = [
@@ -57,10 +58,12 @@ function Header() {
     const [showMenuIcon, setShowMenuIcon] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [showCate, setShowCate] = useState(false);
+    const [searchToggle, setSearchToggle] = useState(false);
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia('(max-width: 767px)');
+        const mediaQuery = window.matchMedia('(max-width: 900px)');
 
         const handleMediaQueryChange = () => {
             if (mediaQuery.matches) {
@@ -95,7 +98,12 @@ function Header() {
                 </Link>
                 <div className={cx('right-header')}>
                     <div className={cx('services-container')}>
-                        <Button className={cx('search-icon')} whiteNoborder mediumTango>
+                        <Button
+                            className={cx('search-icon')}
+                            whiteNoborder
+                            mediumTango
+                            onClick={() => setSearchToggle(true)}
+                        >
                             <SearchIcon />
                         </Button>
                         <Link to={config.routes.productcart}>
@@ -113,6 +121,7 @@ function Header() {
                     </div>
                 </div>
             </div>
+            {searchToggle && <Search setSearchToggle={setSearchToggle} />}
             {showMenu && (
                 <div className={cx('sidebar_menu-container')}>
                     <Button whiteNoborder onClick={() => setShowMenu(false)}>
@@ -157,6 +166,7 @@ function Header() {
                                 key={index}
                                 className={(nav) => cx('nav-item', { active: nav.isActive })}
                                 to={item.to}
+                                onClick={() => window.scrollTo(0, 0)}
                             >
                                 <span>{item.title}</span>
                             </NavLink>
