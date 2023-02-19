@@ -154,6 +154,8 @@
 
 // NAVIGATION
 .navigation-container {
+    position: absolute;
+    z-index: -1;
     width: 100%;
     background-color: rgb(237 237 237);
     box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);

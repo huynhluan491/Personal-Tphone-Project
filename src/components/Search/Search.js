@@ -10,7 +10,7 @@ import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
-const hotProducts = data.slice(36, 44);
+const hotProducts = data.slice(20, 44);
 const Search = ({ setSearchToggle }) => {
     const [productSearched, setProductSearched] = useState(hotProducts);
     const [searchValue, setSearchValue] = useState('');
@@ -39,7 +39,7 @@ const Search = ({ setSearchToggle }) => {
                 <h1 className={cx('title')}>Được tìm kiếm nhiều nhất</h1>
                 <div className={cx('products-wrapper')}>
                     {productSearched.map((item, index) => (
-                        <ProductItem data={item} />
+                        <ProductItem key={index} data={item} />
                     ))}
                 </div>
             </div>
