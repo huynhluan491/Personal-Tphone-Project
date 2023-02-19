@@ -85,14 +85,16 @@ const Search = ({ setSearchToggle }) => {
                     </Button>
                 </div>
                 <Button className={cx('close-icon')} whiteNoborder onClick={() => setSearchToggle(false)}>
-                    <CloseIcon />
+                    <CloseIcon className={cx('icon')} />
                 </Button>
             </div>
             <div className={cx('content-wrapper')}>
                 <h1 className={cx('title')}>Được tìm kiếm nhiều nhất</h1>
                 <div className={cx('products-wrapper')}>
                     {productSearched.map((item, index) => (
-                        <ProductItem key={index} data={item} />
+                        <div className={cx('product-item')} onClick={() => setSearchToggle(false)}>
+                            <ProductItem key={index} data={item} />
+                        </div>
                     ))}
                 </div>
             </div>
