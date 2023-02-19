@@ -19,7 +19,6 @@
 
     .service-img {
         width: 40%;
-        height: 100%;
         object-fit: contain;
     }
 }
@@ -71,8 +70,12 @@
     }
     .service-container {
         flex-direction: column;
+        justify-content: unset;
+
         .service-img {
-            width: unset;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
     }
