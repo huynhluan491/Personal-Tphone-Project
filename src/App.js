@@ -8,7 +8,7 @@ import ProductDetail from '~/components/ProductDetail';
 function App() {
     return (
         <Router>
-            <div className="App" style={{ backgroundColor: '#f6f6f6' }}>
+            <div className="App" style={{ backgroundColor: '#f6f6f6', height: '100%' }}>
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component;
