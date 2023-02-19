@@ -82,6 +82,11 @@ function Header() {
         return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
     }, []);
 
+    const handleMenuBack = () => {
+        setShowMenu(false);
+        setShowCate(false);
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -124,7 +129,7 @@ function Header() {
             {searchToggle && <Search setSearchToggle={setSearchToggle} />}
             {showMenu && (
                 <div className={cx('sidebar_menu-container')}>
-                    <Button whiteNoborder onClick={() => setShowMenu(false)}>
+                    <Button whiteNoborder onClick={() => handleMenuBack()}>
                         <BackNavigate />
                     </Button>
                     <ul className={cx('cate-list')}>
