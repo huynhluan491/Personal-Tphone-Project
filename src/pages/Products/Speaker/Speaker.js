@@ -23,7 +23,7 @@ function Speaker() {
             <ProductCate headerCate="Loa" />
             <div className={cx('container')}>
                 <Nodata />
-                <h1>Hiện tại của hàng chưa có sản phầm nào cho danh mục này.</h1>
+                <h1>Hiện tại của hàng chưa có sản phẩm nào cho danh mục này.</h1>
             </div>
         </div>
     );

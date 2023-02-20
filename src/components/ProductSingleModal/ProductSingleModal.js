@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './ProductSingleModal.module.scss';
-import { CartIcon, FillStarIcon, HalfStarIcon, MinusIcon, PlusIcon } from '../Icons';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { CartIcon, FillStarIcon, HalfStarIcon, MinusIcon, PlusIcon } from '../Icons';
+import { showToast } from '~/function';
 
 const cx = classNames.bind(styles);
 
@@ -27,6 +32,12 @@ function ProductSingleModal({ product }) {
         } else {
             setQuantity(1);
         }
+    };
+
+    const handleButton = () => {
+        addToCart();
+        showToast();
+        console.log('clicked');
     };
 
     return (
@@ -113,10 +124,12 @@ function ProductSingleModal({ product }) {
                         </div>
                         <p className={cx('product-description')}>{product?.description}</p>
                         <div className={cx('action-btn')}>
-                            <button onClick={() => addToCart()} className={cx('addToCart-btn')}>
+                            <button onClick={() => handleButton()} className={cx('addToCart-btn')}>
                                 <CartIcon />
                                 <span className={cx('btn-text')}>Thêm vào giỏ hàng</span>
                             </button>
+                            <ToastContainer hideProgressBar={true} />
+
                             <Link to="/">
                                 <button className={cx('product-gift')}>
                                     <img
