@@ -28,10 +28,10 @@ const publicRoutes = [
     { path: config.routes.networkdevice, component: NetworkDevice },
     { path: config.routes.smartclock, component: SmartClock },
     { path: config.routes.speaker, component: Speaker },
-    { path: config.routes.login, component: Login, layout: null },
-    { path: config.routes.register, component: Register, layout: null },
     { path: config.routes.product, component: Product },
     { path: config.routes.productcart, component: ProductCart, layout: null },
+    { path: config.routes.login, component: Login, layout: null },
+    { path: config.routes.register, component: Register, layout: null },
 ];
 
 const privateRoutes = [];

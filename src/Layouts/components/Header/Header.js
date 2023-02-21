@@ -118,12 +118,14 @@ function Header() {
                             </Button>
                         </Link>
                     </div>
-                    <div className={cx('user-login')}>
-                        <div className={cx('icon')}>
-                            <FontAwesomeIcon icon={faUser} />
+                    <Link to={config.routes.login} onClick={() => window.scrollTo(0, 0)}>
+                        <div className={cx('user-login')}>
+                            <div className={cx('icon')}>
+                                <FontAwesomeIcon icon={faUser} />
+                            </div>
+                            <div className={cx('content')}>Đăng nhập</div>
                         </div>
-                        <div className={cx('content')}>Đăng nhập</div>
-                    </div>
+                    </Link>
                 </div>
             </div>
             {searchToggle && <Search setSearchToggle={setSearchToggle} />}

@@ -30,7 +30,7 @@ const Search = ({ setSearchToggle }) => {
         setShowLoading(true);
 
         setTimeout(() => {
-            const result = data.filter((item) => item.name.toLowerCase().includes(debouncedValue));
+            const result = data.filter((item) => item.name.toLowerCase().includes(debouncedValue.toLowerCase()));
             setProductSearched(result);
             setShowLoading(false);
         }, 1000);
